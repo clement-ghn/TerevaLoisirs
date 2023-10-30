@@ -1,1 +1,11 @@
-node_modules
+node_modules/
+dist/
+src/assets/
+src/assets/*.png
+src/assets/*.jpg
+src/assets/*.jpeg
+src/assets/*.gif
+src/assets/*.bmp
+.angular/cache/
+*.bak
+*.log
