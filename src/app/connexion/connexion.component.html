@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tereva Loisirs</title>
+  <link rel="stylesheet" type="text/css" href="./connexion.component.css">
+</head>
+<body>
+  <app-header></app-header>
+  <div class="container">
+    <form>
+      <label for="username">Nom d'utilisateur:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username" />
+    
+      <label for="password">Mot de passe:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" />
+    
+      <button (click)="login()">Se connecter</button>
+    </form>
+  </div>
+  
+  
+  <app-footer></app-footer>
+</body>
+</html>

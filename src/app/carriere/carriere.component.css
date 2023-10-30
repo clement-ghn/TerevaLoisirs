@@ -1,0 +1,74 @@
+/* Styles de base */
+.container {
+  padding: 20px 0 80px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  background-color: #f4f4f4;
+}
+
+form {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  width: 300px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+button {
+  padding: 10px;
+  background-color: #995a9b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 107%;
+}
+
+button:hover {
+  background-color: #7f227e;
+}
+
+.ng-valid[required], .ng-valid.required {
+  border: 1px solid #AEC534;
+}
+
+.ng-invalid:not(form) {
+  border: 1px solid #D47422;
+}
+
+/* Nouveaux styles pour les colonnes */
+.container {
+  flex-wrap: wrap;
+}
+
+.left-column,
+.right-column,
+.middle-column {
+  flex-basis: calc(33.33% - 40px);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.left-column img,
+.right-column img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

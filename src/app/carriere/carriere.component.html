@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tereva Loisirs</title>
+  <link rel="stylesheet" type="text/css" href="./carriere.component.css">
+</head>
+<body>
+  <app-header></app-header>
+  <div class="container">
+
+    <div class="left-column">
+      <img src="../../assets/carriere/imagecarriere2.jpeg" alt="Image Gauche">
+    </div>
+
+    <div class="middle-container">
+        <h2>Section Carrière</h2>
+        <p>Veuillez remplir le formulaire ci-dessous pour postuler :</p>
+    
+        <form [formGroup]="carriereForm" (ngSubmit)="submitForm()">
+        <label for="name">Nom complet:</label>
+        <input type="text" id="name" formControlName="name" required>
+    
+        <label for="email">Adresse e-mail:</label>
+        <input type="email" id="email" formControlName="email" required>
+    
+        <label for="cv">CV:</label>
+        <input type="file" id="cv" formControlName="cv" required>
+    
+        <label for="cv">Lettre de motivation:</label>
+        <input type="file" id="coverLetter" formControlName="coverLetter" required>
+
+    
+        <button type="submit" [disabled]="carriereForm.invalid">Soumettre</button>
+        </form>
+    </div>
+
+    <div class="right-column">
+      <img src="../../assets/carriere/imagecarriere1.jpeg" alt="Image Droite">
+    </div>
+
+  </div>
+
+  <app-footer></app-footer>
+</body>
+</html>

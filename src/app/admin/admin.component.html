@@ -1,0 +1,14 @@
+<p>admin works!</p>
+
+<div *ngFor="let application of careerApplications">
+    <div>ID: {{ application.id }}</div>
+    <div>Nom: {{ application.name }}</div>
+    <div>Email: {{ application.email }}</div>
+    <div>
+      CV: <a [href]="application.cv_link" target="_blank">Télécharger CV</a>
+    </div>
+    <div>
+      Lettre de motivation: <a [href]="application.cover_letter_link" target="_blank">Télécharger Lettre de motivation</a>
+    </div>
+  </div>
+  
