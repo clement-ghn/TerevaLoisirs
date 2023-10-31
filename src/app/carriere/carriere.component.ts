@@ -39,14 +39,25 @@ export class CarriereComponent implements OnInit {
       if (coverLetterFile instanceof File) {
         formData.append('coverLetter', coverLetterFile, coverLetterFile.name);
       }
-      this.userService.submitCareerApplication(formData).subscribe((response) => {
-        console.log(response);
-        if (response['message'] === 'Candidature soumise avec succès') {
-          console.log('Candidature soumise avec succès !');
-        } else {
-          console.log('Erreur lors de la soumission de la candidature.');
-        }
-      });
+      this.userService.submitCareerApplication(formData).subscribe(
+  (response) => {
+    if (response) {
+      console.log(response);
+      if (response['message'] === 'Candidature soumise avec succès') {
+        console.log('Candidature soumise avec succès !');
+      } else {
+        console.log('Erreur lors de la soumission de la candidature.');
+      }
+    } else {
+      console.log('Réponse vide ou non définie.');
+    }
+  },
+  (error) => {
+    console.error('Une erreur s est produite :', error);
+    // Vous pouvez ajouter du code pour gérer l'erreur ici.
+  }
+);
+    
     }
   }
   

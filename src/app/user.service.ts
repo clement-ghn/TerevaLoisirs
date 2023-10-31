@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserData } from './user.interface';
 import { Injectable } from '@angular/core';
@@ -27,5 +27,4 @@ export class UserService {
   getAllCareerApplications(): Observable<any> {
     return this.http.get(`${this.baseUrl}/career-applications`);
   }
-  
 }

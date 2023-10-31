@@ -17,7 +17,7 @@
         <h2>Section Carrière</h2>
         <p>Veuillez remplir le formulaire ci-dessous pour postuler :</p>
     
-        <form [formGroup]="carriereForm" (ngSubmit)="submitForm()">
+        <form [formGroup]="carriereForm" (ngSubmit)="submitForm()" enctype="multipart/form-data">
         <label for="name">Nom complet:</label>
         <input type="text" id="name" formControlName="name" required>
     
@@ -27,7 +27,7 @@
         <label for="cv">CV:</label>
         <input type="file" id="cv" formControlName="cv" required>
     
-        <label for="cv">Lettre de motivation:</label>
+        <label for="coverLetter">Lettre de motivation:</label>
         <input type="file" id="coverLetter" formControlName="coverLetter" required>
 
     

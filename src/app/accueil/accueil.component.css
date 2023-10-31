@@ -135,30 +135,6 @@
   text-decoration: none;
 }
   
-  
-.bouton {
-  display: inline-block;
-  margin: 20px;
-  margin-bottom: 100px;
-  position: relative;
-  overflow: hidden;
-  background-color: #7f227e ;
-  border: none;
-  border-radius: 5px;
-}
-
-.bouton a {
-  display: block;
-  padding: 10px 20px;
-  color: white;
-  text-decoration: none;
-  transition: transform 0.3s, background-color 0.3s;
-}
-
-.bouton:hover a {
-  transform: translateY(-5px);
-  background-color: #995a9b;
-}
 
 .image-container {
   display: flex; /* Utiliser Flexbox */

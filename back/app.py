@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, session, redirect, url_for, send_file, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+import io
+
 
 app = Flask(__name__)
 CORS(app)
@@ -87,19 +89,22 @@ def submit_career_application():
         name = data.get('name')
         email = data.get('email')
         cv = request.files['cv']
-        if cv:
-            cv.save('uploads/' + cv.filename)
         cover_letter = request.files.get('coverLetter')
-        if cover_letter:
-            cover_letter.save('uploads/' + cover_letter.filename)
 
-        # Stockez les données dans la base de données
-        application = CareerApplication(name=name, email=email, cv=cv, cover_letter=cover_letter)
-        db.session.add(application)
-        db.session.commit()
+        if cv and cover_letter:
+            cv_data = cv.read()  # Convertir en données binaires
+            cover_letter_data = cover_letter.read()  # Convertir en données binaires
 
-        return jsonify({'message': 'Candidature enregistrée avec succès'})
-    
+            # Stockez les données dans la base de données
+            application = CareerApplication(name=name, email=email, cv=cv_data, cover_letter=cover_letter_data)
+            db.session.add(application)
+            db.session.commit()
+
+            return jsonify({'message': 'Candidature enregistrée avec succès'})
+
+        return jsonify({'message': 'Données manquantes'})
+
+
 @app.route('/career-applications', methods=['GET'])
 def get_career_applications():
     if request.method == 'GET':
@@ -115,7 +120,9 @@ def get_career_applications():
             }
             application_list.append(application_data)
         return jsonify({'applications': application_list})
+    
 
+#recuperation de la liste des cv envoyés
 @app.route('/get-cv/<int:application_id>', methods=['GET'])
 def get_cv(application_id):
     application = CareerApplication.query.get(application_id)
@@ -125,6 +132,7 @@ def get_cv(application_id):
     else:
         return jsonify({'message': 'Candidature introuvable'})
 
+#recuperation de la liste des lettres de motiv envoyés
 @app.route('/get-cover-letter/<int:application_id>', methods=['GET'])
 def get_cover_letter(application_id):
     application = CareerApplication.query.get(application_id)

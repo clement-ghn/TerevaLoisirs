@@ -15,7 +15,7 @@ import { Hebergement1Component } from './hebergement1/hebergement1.component';
 import { AdminComponent } from './admin/admin.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { Hebergement2Component } from './hebergement2/hebergement2.component';
+import { Hebergement2Component } from './hebergement2/hebergement2.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { Hebergement2Component } from './hebergement2/hebergement2.component';
     AdminComponent,
     FooterComponent,
     HeaderComponent,
-    Hebergement2Component
+    Hebergement2Component,
   ],
   imports: [
     BrowserModule,
