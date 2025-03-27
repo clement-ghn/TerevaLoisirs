@@ -12,7 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///TerevaLoisirs.db'
 db = SQLAlchemy(app)
 
 # Clé secrète pour la gestion de session (veillez à la garder secrète en production)
-app.secret_key = 'Cle!geh4M'
+app.secret_key = ''
 
 # Modèle de données pour les utilisateurs
 class User(db.Model):
